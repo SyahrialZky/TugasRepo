@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DataController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home');
 });
+Route::get('/table', [DataController::class, 'index']);
+Route::post('/table/create', [DataController::class, 'create']);
+Route::get('/table', [DataController::class, 'createProcess']);
+Route::get('/table/delete{id}', [DataController::class, 'delete'])->name('hapusBarang');
